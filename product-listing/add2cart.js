@@ -2,6 +2,11 @@ var count;
 
 const userEl = document.getElementById("cart");
 userEl.addEventListener('click', function (){
-    document.getElementById("cartNos").innerText = 1;
+    if (sessionStorage.clickcount) {
+        sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+      } else {
+        sessionStorage.clickcount = 1;
+        }
+      document.getElementById("cartNos").innerHTML = sessionStorage.clickcount;
 });
     
