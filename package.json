@@ -13,6 +13,7 @@
     "lite-server": "^2.6.1"
   },
   "dependencies": {
-    "@metamask/sdk": "^0.14.1"
+    "@metamask/sdk": "^0.14.1",
+    "web3": "^4.2.2"
   }
 }
