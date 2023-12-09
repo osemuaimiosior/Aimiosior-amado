@@ -18,11 +18,11 @@ contract assetContract {
         string assetName;
     }
 
-    mapping (uint => address) carDemoLog;
-    mapping (address => transactionLog[]) assetTransaction;
+    mapping(uint => address) carDemoLog;
+    mapping(address => transactionLog) assetTransaction;
     mapping(address => string) subEmail;
     address[] subscribers;
-    mapping (address => regDetails[]) userDet;
+    mapping(address => regDetails) userDet;
     
     function subscribe(string memory email) public returns(string memory Done){
         subEmail[msg.sender] = email;
@@ -34,8 +34,12 @@ contract assetContract {
         return subscribers;
     }
     
-    function assetPayment(uint carAmount) public returns(string memory Successful){
-        companyAccount.transfer(carAmount);
+    function assetPayment(uint _assetAmount, string memory _assetName) public returns(string memory Successful){
+        transactionLog memory tl;
+        tl.assetAmount = _assetAmount;
+        tl.assetName = _assetName;
+        assetTransaction[msg.sender] = tl;
+        companyAccount.transfer(_assetAmount);
         return Successful;
     }
 
