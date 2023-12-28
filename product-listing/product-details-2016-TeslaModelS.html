@@ -69,13 +69,16 @@
             <!-- Amado Nav -->
             <nav class="amado-nav">
                 <ul>
-                    <li><a href="/index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Car Shop</a></li>
+                    <li><a href="#">Car Parts</a></li>
+                    <li><a href="#">About Us</a></li>
                 </ul>
             <!-- Button Group -->
             <div class="amado-btn-group mt-30 mb-100">
                 <a href="checkout.html" class="btn amado-btn mb-15">Checkout</a>
-                <a href="#" class="btn amado-btn mb-15">Login</a>
+                <button type="submit" class="btn amado-btn mb-15" onclick="connect()">Login</button>
+                <a href="../BookDemo.html" class="btn amado-btn mb-15">Book Inspection</a>
             </div>
             </nav>
             <!-- Cart Menu -->
@@ -194,14 +197,6 @@
 
                             <!-- Add to Cart Form -->
                             <form class="cart clearfix" method="post">
-                                <div class="cart-btn d-flex mb-50">
-                                    <p>Qty</p>
-                                    <div class="quantity">
-                                        <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
-                                        <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="quantity" value="1">
-                                        <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-caret-up" aria-hidden="true"></i></span>
-                                    </div>
-                                </div>
                                 <button type="submit" name="addtocart" value="5" class="btn amado-btn">Add to cart</button>
                             </form>
 
@@ -252,7 +247,7 @@
                         </div>
                         <!-- Copywrite Text -->
                         <p class="copywrite"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> & Re-distributed by <a href="https://themewagon.com/" target="_blank">Themewagon</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Aimiosior-amado</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                     </div>
                 </div>
@@ -301,7 +296,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="/js/plugins.js"></script>
     <!-- Active js -->
     <script src="/js/active.js"></script>
-
+    <script charset="utf-8" src="https://cdn.ethers.io/scripts/ethers-v4.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+    <script src="../js/metaMask.js"></script>
 </body>
 
 </html>
