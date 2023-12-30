@@ -1,7 +1,7 @@
 'use strict';
 
 function verificationResult(){
-    window.open("../VerificationResult.html", "", "width=600,height=700");
+    window.open("../VerificationResult.html", "", "width=500,height=550");
 }
      
 function verify() {
