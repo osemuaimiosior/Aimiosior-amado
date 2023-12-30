@@ -5,7 +5,7 @@ function verificationResult(){
 }
      
 function verify() {
-    let pt = prompt('Input Vehicle Identification Number');
+    let pt = prompt('Input Asset Identification Number');
     if(pt != null){
         verificationResult();
     }
