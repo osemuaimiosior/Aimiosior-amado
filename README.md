@@ -1,3 +1,3 @@
 # Aimiosior-amado
 
-Buy, sell and track car(s) and car part(s) ownership originality.
+Buy, sell and verify car(s) asset ownership.
