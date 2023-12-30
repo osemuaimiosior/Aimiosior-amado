@@ -1,3 +1,5 @@
+'use strict';
+
 function verificationResult(){
     window.open("../VerificationResult.html", "", "width=600,height=700");
 }

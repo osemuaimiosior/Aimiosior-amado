@@ -1,5 +1,7 @@
 // window.addEventListener('load', function () {}
 
+'use strict';
+
 function connect() {
     if (typeof window.ethereum !== 'undefined') {
         // Use the browser injected Ethereum provider
