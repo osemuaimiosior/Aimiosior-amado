@@ -10,3 +10,10 @@ function verify() {
         verificationResult();
     }
 }
+
+function verifyTelComm() {
+    let pt = prompt('Input Asset IMEI Number');
+    if(pt != null){
+        verificationResult();
+    }
+}
