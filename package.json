@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@metamask/sdk": "^0.14.1",
+    "mongodb": "^6.3.0",
     "web3": "^4.2.2"
   }
 }
