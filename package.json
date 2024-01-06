@@ -1,20 +1,30 @@
 {
   "name": "amado-master",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.html",
+  "description": "Buy, sell, mint and verify your asset(s).",
+  "main": "webserver.js",
   "scripts": {
     "start": "npm run lite",
     "lite": "lite-server"
   },
-  "author": "",
+  "author": "aimiosior-amado",
   "license": "ISC",
-  "devDependencies": {
-    "lite-server": "^2.6.1"
-  },
   "dependencies": {
+    "date-fns":"^2.23.0",
+    "uuid": "^8.3.2",
     "@metamask/sdk": "^0.14.1",
     "mongodb": "^6.3.0",
     "web3": "^4.2.2"
-  }
+  },
+  "devDependencies": {
+    "nodemon":"^2.0.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osemuaimiosior/Aimiosior-amado.git"
+  },
+  "bugs": {
+    "url": "https://github.com/osemuaimiosior/Aimiosior-amado/issues"
+  },
+  "homepage": "https://github.com/osemuaimiosior/Aimiosior-amado#readme"
 }
