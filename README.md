@@ -1,3 +1,3 @@
 # Aimiosior-amado
 
-Buy, sell and verify car(s) and asset ownership.
+Buy, sell, mint and verify your asset(s).
