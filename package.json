@@ -2,7 +2,7 @@
   "name": "amado-master",
   "version": "1.0.0",
   "description": "Buy, sell, mint and verify your asset(s).",
-  "main": "webserver.js",
+  "main": "app.js",
   "scripts": {
     "start": "npm run lite",
     "lite": "lite-server"
