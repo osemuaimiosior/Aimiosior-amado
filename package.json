@@ -4,8 +4,8 @@
   "description": "Buy, sell, mint and verify your asset(s).",
   "main": "app.js",
   "scripts": {
-    "start": "npm run lite",
-    "lite": "lite-server"
+    "start": "node app",
+    "dev": "nodemon app"
   },
   "author": "aimiosior-amado",
   "license": "ISC",
