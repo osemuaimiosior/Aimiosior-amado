@@ -1,25 +1,16 @@
-const http = require('http');
+const express = require('express');
+const app = express();
+
 const path = require('path');
-const fs = require('fs');
-const fsPromises = require('fs').promises;
-
-const logEvents = require('./logEvents');
-const EventEmitter = require('events');
-
 const PORT = process.env.PORT || 3500;
 
-class Emitter extends EventEmitter {};
-
-const myEmitter = new Emitter();
-
-const server = http.createServer((req, res) => {
-    console.log(req.url, req.method);
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.get('/Dashboard/index.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Dashboard', 'index.html'));
+});
 
-/*
-myEmitter.on('log', (msg) => logEvents(msg));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-    myEmitter.emit('log', 'Log event emitted!');
-    */
