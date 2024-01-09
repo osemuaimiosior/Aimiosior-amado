@@ -2,7 +2,23 @@ const express = require('express');
 const app = express();
 
 const path = require('path');
+const logEvents = require('./middleware/logEvents');
 const PORT = process.env.PORT || 3500;
+
+// custom midddleware logger
+app.use((req, res, next) => {
+    logEvents(`${req.method}\t${req.headers.orgin}\t${req.url}`);
+    next();
+});
+
+// To handle form data
+app.use(express.urlencoded({ extended: false}));
+
+// built-in middleware for json
+app.use(express.json());
+
+//Serve static files
+app.use(express.static(path.join(__dirname, '/public')));
 
 // function one
 /*const actionOne = (req, res) => {
@@ -19,14 +35,8 @@ const actionTwo = (req, res) => {
 // If link is pressed, run function actionOne and actionTwo
 app.get('^/$|/index(.html)?', [actionOne, actionTwo]);*/
 
-// To handle form data
-app.use(express.urlencoded({ extended: false}));
 
-// built-in middleware for json
-app.use(express.json());
 
-//Serve static files
-app.use(express.static(path.join(__dirname, '/public')));
 
 app.get('^/$|/index(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
