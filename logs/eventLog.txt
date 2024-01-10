@@ -1,4 +1,0 @@
-20240107	01:05:34	bc858e22-ec86-4b69-b7a3-56e06ee32dcd	Log event emitted!
-20240107	01:05:52	c68e7103-7807-4b4e-bf2f-307ba40146a8	Log event emitted!
-20240107	23:04:51	00e9bcaa-87e5-4468-9f78-91fefffce79f	Log event emitted!
-20240107	23:08:50	e13c2a94-8853-42d3-9738-ed130e1b9fc2	Log event emitted!

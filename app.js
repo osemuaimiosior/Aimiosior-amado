@@ -1,20 +1,32 @@
 const express = require('express');
 const app = express();
-
+const cors = require('cors');
 const path = require('path');
-const logEvents = require('./middleware/logEvents');
+const { logger } = require('./middleware/logEvents');
 const PORT = process.env.PORT || 3500;
 
 // custom midddleware logger
-app.use((req, res, next) => {
-    logEvents(`${req.method}\t${req.headers.orgin}\t${req.url}`);
-    next();
-});
+app.use(logger);
+
+// Cross Origin Resource Sharing (cors)
+const whitelist = ['https://www.yoursite.com','http//127.0.0.1:5500','http://localhost:3500'];
+const corsOptions = {
+    origin: (origin, callback) =>{
+        if(whitelist.indexOf(origin) != -1){
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by cors'))
+        }
+    }, 
+    optionsSuccessStatus: 200
+}
+
+app.use(cors(corsOptions));
 
 // To handle form data
 app.use(express.urlencoded({ extended: false}));
 
-// built-in middleware for json
+// built-in middleware to read json file into the server json
 app.use(express.json());
 
 //Serve static files
@@ -34,9 +46,6 @@ const actionTwo = (req, res) => {
 
 // If link is pressed, run function actionOne and actionTwo
 app.get('^/$|/index(.html)?', [actionOne, actionTwo]);*/
-
-
-
 
 app.get('^/$|/index(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
