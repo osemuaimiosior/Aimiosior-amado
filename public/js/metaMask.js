@@ -1,8 +1,6 @@
 // window.addEventListener('load', function () {}
 
-'use strict';
-
-function connect() {
+const connect =  () => {
     if (typeof window.ethereum !== 'undefined') {
         // Use the browser injected Ethereum provider
         web3 = new Web3(window.ethereum);

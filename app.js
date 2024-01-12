@@ -34,21 +34,26 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 // function one
 /*const actionOne = (req, res) => {
-    res.sendFile(path.join(__dirname, 'AboutUs.html'));
+
     next();
 };
 
 // function two
 const actionTwo = (req, res) => {
-    res.sendFile(path.join(__dirname, 'AboutUs.html'));
+   
     next();
 };
 
 // If link is pressed, run function actionOne and actionTwo
-app.get('^/$|/index(.html)?', [actionOne, actionTwo]);*/
+app.get('/Dashboard/dashBoardIndex(.html)?', [actionOne, actionTwo]);*/
 
 app.get('^/$|/index(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.get('/Dashboard/dashBoardIndex.html(.html)?', (req, res) => {
+
+     res.sendFile(path.join(__dirname, 'Dashboard','dashBoardIndex.html'));
 });
 
 app.get('../index(.html)?', (req, res) => {
@@ -67,9 +72,14 @@ app.get('/AboutUs(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'AboutUs.html'));
 });
 
-app.get('/Dashboard/dashBoardIndex(.html)?', (req, res) => {
+/*app.get('/Dashboard/dashBoardIndex(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'Dashboard', 'dashBoardIndex.html'));
+});*/
+
+app.get('/login(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'login.html'));
 });
+
 
 app.get('/product-listing/product-details-2015-Benz(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'product-listing','product-details-2015-Benz.html'));

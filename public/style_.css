@@ -1747,7 +1747,7 @@ a[data-toggle="collapse"] {
     min-width: 125px;
     height: auto;
     float: left;
-    background: #1ed085;
+    background: #ffbf00;
     text-align: center;
     color: #fff;
     padding: 10px 25px;
@@ -1766,7 +1766,7 @@ button.main_bt {
 
 .main_bt:hover,
 .main_bt:focus {
-    background: #ff5722;
+    background: #030303;
     color: #fff;
 }
 
@@ -3370,6 +3370,11 @@ table.projects tr td:first-child {
     color: #ff5722;
 }
 
+#displaycenter {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+ }
 
 /*------------------------------------------------------------------
     26. Error
