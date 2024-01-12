@@ -5,6 +5,8 @@ const path = require('path');
 const { logger } = require('./middleware/logEvents');
 const PORT = process.env.PORT || 3500;
 
+// <----Server settings starts here---->
+
 // custom midddleware logger
 app.use(logger);
 
@@ -32,6 +34,8 @@ app.use(express.json());
 //Serve static files
 app.use(express.static(path.join(__dirname, '/public')));
 
+// <----Server settings ends here---->
+
 // function one
 /*const actionOne = (req, res) => {
 
@@ -46,6 +50,8 @@ const actionTwo = (req, res) => {
 
 // If link is pressed, run function actionOne and actionTwo
 app.get('/Dashboard/dashBoardIndex(.html)?', [actionOne, actionTwo]);*/
+
+// <----home page routes starts here---->
 
 app.get('^/$|/index(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
@@ -80,7 +86,9 @@ app.get('/login(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'login.html'));
 });
 
-// <----Product listing on automobile home page starts here---->
+// <----home page routes ends here---->
+
+// <----Automobile home page starts here---->
 
 app.get('/product-listing/product-details-2015-Benz(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'product-listing','product-details-2015-Benz.html'));
@@ -90,7 +98,11 @@ app.get('/product-listing/product-details-2016-TeslaModelS(.html)?', (req, res) 
     res.sendFile(path.join(__dirname, 'product-listing','product-details-2016-TeslaModelS.html'));
 });
 
-// <----Product listing on automobile home page ends here---->
+// <----Automobile home page ends here---->
+
+// <----Server port information starts here---->
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// <----Server port information ends here---->
 
