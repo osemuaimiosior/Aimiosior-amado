@@ -81,9 +81,15 @@ app.get('/login(.html)?', (req, res) => {
 });
 
 // <----Product listing on automobile home page starts here---->
+
 app.get('/product-listing/product-details-2015-Benz(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'product-listing','product-details-2015-Benz.html'));
 });
+
+app.get('/product-listing/product-details-2016-TeslaModelS(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'product-listing','product-details-2016-TeslaModelS.html'));
+});
+
 // <----Product listing on automobile home page ends here---->
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
