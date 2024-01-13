@@ -196,7 +196,7 @@
 
                            <!-- Add to Cart Form -->
                            <form class="cart clearfix">
-                            <button type="submit" class="btn amado-btn" id="cart" >Add to cart</button>
+                            <button type="submit" class="btn amado-btn" onclick="verificationResult()" id="cart" >Verify Asset</button>
                         </form>
 
                     </div>
@@ -277,6 +277,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
     <script src="../js/metaMask.js"></script>
     <script src="../js/BookDemo.js"></script>
+
+    <script>
+        function verificationResult() {
+                window.open("../VerificationResult.html", "", "width=500,height=550");
+        }
+    </script>
 </body>
 
 </html>

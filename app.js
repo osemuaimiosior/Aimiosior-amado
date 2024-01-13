@@ -34,7 +34,10 @@ app.use(express.json());
 //Serve static files
 app.use(express.static(path.join(__dirname, '/public')));
 
-// <----Server settings ends here---->
+// <----product listing router starts here---->
+app.use('/product-listing', require('./routes/productListing'));
+
+// <----product listing router ends here---->
 
 // function one
 /*const actionOne = (req, res) => {
@@ -50,6 +53,7 @@ const actionTwo = (req, res) => {
 
 // If link is pressed, run function actionOne and actionTwo
 app.get('/Dashboard/dashBoardIndex(.html)?', [actionOne, actionTwo]);*/
+
 
 // <----home page routes starts here---->
 
@@ -78,27 +82,11 @@ app.get('/AboutUs(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'AboutUs.html'));
 });
 
-/*app.get('/Dashboard/dashBoardIndex(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Dashboard', 'dashBoardIndex.html'));
-});*/
-
 app.get('/login(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'login.html'));
 });
 
 // <----home page routes ends here---->
-
-// <----Automobile home page starts here---->
-
-app.get('/product-listing/product-details-2015-Benz(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'product-listing','product-details-2015-Benz.html'));
-});
-
-app.get('/product-listing/product-details-2016-TeslaModelS(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'product-listing','product-details-2016-TeslaModelS.html'));
-});
-
-// <----Automobile home page ends here---->
 
 // <----Server port information starts here---->
 
