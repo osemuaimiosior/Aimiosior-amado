@@ -65,7 +65,6 @@ app.get('^/$|/index(.html)?', (req, res) => {
 });
 
 app.get('/Dashboard/dashBoardIndex.html(.html)?', (req, res) => {
-
      res.sendFile(path.join(__dirname, 'Dashboard','dashBoardIndex.html'));
 });
 
