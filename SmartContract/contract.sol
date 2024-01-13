@@ -43,9 +43,10 @@ contract assetContract {
         return Successful;
     }
 
-    function bookCarDemo() public returns(string memory confirmed){
-        uint ID;
-        carDemoLog[ID] = msg.sender;
+    function mintAsset( string memory assetName, 
+                        string memory assetIDNumber,
+                        string memory assetDesc) public returns(string memory confirmed){
+        // Logic goes here
         return confirmed;
     }
 }
