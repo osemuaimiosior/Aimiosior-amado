@@ -35,7 +35,10 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
 // <----product listing router starts here---->
-app.use('/product-listing', require('./routes/productListing'));
+
+app.use('/product-listing', require('./routes/autoProductListing'));
+app.use('/product-listing/telComm', require('./routes/telCommProductListing'));
+app.use('/product-listing/realEstate', require('./routes/realEstateProductListing'));
 
 // <----product listing router ends here---->
 
