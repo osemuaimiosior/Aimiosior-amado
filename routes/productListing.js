@@ -22,4 +22,48 @@ router.get('/product-details-2016-NissanMurano-Hybrid(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','product-listing','product-details-2016-NissanMurano-Hybrid.html'));
 });
 
+router.get('/product-details-2016-NissanMurano-Hybrid(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','product-listing','product-details-2016-NissanMurano-Hybrid.html'));
+});
+
+router.get('/product-details-2016-NissanMurano-Hybrid(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','product-listing','product-details-2016-NissanMurano-Hybrid.html'));
+});
+
+router.get('/product-details-2016-NissanMurano-Hybrid(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','product-listing','product-details-2016-NissanMurano-Hybrid.html'));
+});
+
+router.get('/product-details-2016-NissanMurano-Hybrid(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','product-listing','product-details-2016-NissanMurano-Hybrid.html'));
+});
+
+router.get('/product-details-2016-NissanMurano-Hybrid(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','product-listing','product-details-2016-NissanMurano-Hybrid.html'));
+});
+
+router.get('/product-details-2016-NissanMurano-Hybrid(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','product-listing','product-details-2016-NissanMurano-Hybrid.html'));
+});
+
+router.get('/product-details-2016-NissanMurano-Hybrid(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','product-listing','product-details-2016-NissanMurano-Hybrid.html'));
+});
+
+router.get('/product-details-2016-NissanMurano-Hybrid(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','product-listing','product-details-2016-NissanMurano-Hybrid.html'));
+});
+
+router.get('/product-details-2016-NissanMurano-Hybrid(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','product-listing','product-details-2016-NissanMurano-Hybrid.html'));
+});
+
+router.get('/product-details-2016-NissanMurano-Hybrid(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','product-listing','product-details-2016-NissanMurano-Hybrid.html'));
+});
+
+router.get('/product-details-2016-NissanMurano-Hybrid(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','product-listing','product-details-2016-NissanMurano-Hybrid.html'));
+});
+
 module.exports = router;
