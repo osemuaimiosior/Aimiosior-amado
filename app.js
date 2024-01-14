@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const path = require('path');
 const { logger } = require('./middleware/logEvents');
+const carApi = require('./public/js/carApi.js');
 const PORT = process.env.PORT || 3500;
 
 // <----Server settings starts here---->
