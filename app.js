@@ -97,6 +97,10 @@ app.get('/login(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'login.html'));
 });
 
+app.get('/verificationResult(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'verificationResult.html'));
+});
+
 // <----home page routes ends here---->
 
 // <----Server port information starts here---->
