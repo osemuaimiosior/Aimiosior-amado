@@ -1,12 +1,12 @@
+const { RapidAPIKey, RapidAPIHost } = require('./config.json');
 const express = require('express');
 const app = express();
 const cors = require('cors');
 const path = require('path');
 const { logger } = require('./middleware/logEvents');
-const carApi = require('./public/js/carApi.js');
-const PORT = process.env.PORT || 3500;
+const carApi = require('./public/js/carApi');
 
-// <----Server settings starts here---->
+const PORT = process.env.PORT || 3500;
 
 // custom midddleware logger
 app.use(logger);
@@ -27,7 +27,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // To handle form data
-app.use(express.urlencoded({ extended: false}));
+app.use(express.urlencoded({extended: true}));
 
 // built-in middleware to read json file into the server json
 app.use(express.json());
@@ -41,31 +41,28 @@ app.use('/product-listing', require('./routes/autoProductListing'));
 app.use('/product-listing/telComm', require('./routes/telCommProductListing'));
 app.use('/product-listing/realEstate', require('./routes/realEstateProductListing'));
 
-// <----product listing router ends here---->
+// <----Car estimate forms data processing starts here---->
 
-// function one
-/*const actionOne = (req, res) => {
+app.post('/data', (req, res) => {
+        const vin = req.body.carVin;
+        const mileage = req.body.carMileage;
+        const url = `https://car-utils.p.rapidapi.com/marketvalue?vin=${vin}&mileage=${mileage}`;
+        const options = {
+            method: 'GET',
+            headers: {'X-RapidAPI-Key': RapidAPIKey,
+            'X-RapidAPI-Host': RapidAPIHost}
+          };
+          carApi(url, options);
+          res.end();
+});
 
-    next();
-};
-
-// function two
-const actionTwo = (req, res) => {
-   
-    next();
-};
-
-// If link is pressed, run function actionOne and actionTwo
-app.get('/Dashboard/dashBoardIndex(.html)?', [actionOne, actionTwo]);*/
-
-
-// <----home page routes starts here---->
+// <----Car estimate forms data processing ends here---->
 
 app.get('^/$|/index(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.get('/Dashboard/dashBoardIndex.html(.html)?', (req, res) => {
+app.get('/Dashboard/dashBoardIndex(.html)?', (req, res) => {
      res.sendFile(path.join(__dirname, 'Dashboard','dashBoardIndex.html'));
 });
 
@@ -93,6 +90,10 @@ app.get('/AboutUs(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'AboutUs.html'));
 });
 
+app.get('/carEstimate(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'carEstimate.html'));
+});
+
 app.get('/login(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'login.html'));
 });
@@ -103,9 +104,4 @@ app.get('/verificationResult(.html)?', (req, res) => {
 
 // <----home page routes ends here---->
 
-// <----Server port information starts here---->
-
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-// <----Server port information ends here---->
-

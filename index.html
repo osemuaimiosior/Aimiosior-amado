@@ -70,6 +70,8 @@
             <nav class="amado-nav">
                 <ul>
                     <li class="active"><a href="index.html">Automobile</a></li>
+                    <li><a onclick="carEstimate()">Market Value Estimate (Car)</a></li>
+                    <li><a href="carEstimate.html">Market Value Estimate (Car)</a></li>
                     <li><a href="teleComm.html">Telcomm</a></li>
                     <li><a href="realEstateHome.html">Real-Estate</a></li>
                     <li><a href="AboutUs.html">About Us</a></li>
@@ -382,6 +384,10 @@
     <script src="js/metaMask.js"></script>
     <script src="js/verify.js"></script>
     <script src="js/mintAsset.js"></script>
-    <script src="js/carApi.js"></script>
+    <script>
+        function carEstimate(){
+            window.open("/carEstimate.html", "", "width=500,height=400");
+        }
+    </script>
 </body>
 </html>
