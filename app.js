@@ -9,7 +9,7 @@ const carApi = require('./public/js/carApi');
 const PORT = process.env.PORT || 3500;
 
 // custom midddleware logger
-app.use(logger);
+// app.use(logger);
 
 // Cross Origin Resource Sharing (cors)
 const whitelist = ['https://www.yoursite.com','http://127.0.0.1:5500','http://localhost:3500'];
@@ -53,7 +53,7 @@ app.post('/data', (req, res) => {
             'X-RapidAPI-Host': RapidAPIHost}
           };
           carApi(url, options);
-          res.end();
+          res.sendFile(path.join(__dirname, 'carEstimate.html'));
 });
 
 // <----Car estimate forms data processing ends here---->

@@ -17,3 +17,7 @@ function verifyTelComm() {
         verificationResult();
     }
 }
+
+function carEstimate(){
+    window.open("/carEstimate.html", "", "width=500,height=400");
+}
