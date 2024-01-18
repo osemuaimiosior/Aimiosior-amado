@@ -58,7 +58,13 @@ app.post('/data', (req, res) => {
 
 // <----Car estimate forms data processing ends here---->
 
+// <----General mallware starts here---->
+
 app.get('^/$|/index(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Maxim','index.html'));
+});
+
+app.get('/indexTrade(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 

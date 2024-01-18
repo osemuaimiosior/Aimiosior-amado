@@ -1015,7 +1015,7 @@ img {
 .newsletter-area {
   position: relative;
   z-index: 1;
-  background-color: #3c3c3c; }
+  background-color: #0c0c0c; }
   .newsletter-area .newsletter-text {
     position: relative;
     z-index: 1; }
@@ -1154,7 +1154,7 @@ img {
 .footer_area {
   position: relative;
   z-index: 1;
-  background-color: #252525;
+  background-color: #0c0c0c;
   padding: 80px 0; }
   .footer_area .single_widget_area .copywrite {
     font-size: 12px;
