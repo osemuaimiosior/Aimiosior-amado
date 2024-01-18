@@ -72,15 +72,11 @@ app.get('/Dashboard/dashBoardIndex(.html)?', (req, res) => {
      res.sendFile(path.join(__dirname, 'Dashboard','dashBoardIndex.html'));
 });
 
-app.get('../index(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, '..','index.html'));
-});
-
 app.get('/teleComm(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'teleComm.html'));
 });
 
-app.get('/mintAsset(.html)?', (req, res) => {
+app.get('../mintAsset(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'mintAsset.html'));
 });
 
@@ -95,6 +91,26 @@ app.get('/realEstateHome(.html)?', (req, res) => {
 app.get('/AboutUs(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'AboutUs.html'));
 });
+
+// About US section (Home page) starts here.--->
+
+app.get('/mintTransfer(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'mintTransfer.html'));
+});
+
+app.get('/reportPage(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'reportPage.html'));
+});
+
+app.get('/trackVerify(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'trackVerify.html'));
+});
+
+app.get('/trade(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'trade.html'));
+});
+
+// About US section (Home page) ends here.--->
 
 app.get('/carEstimate(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'carEstimate.html'));
