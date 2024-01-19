@@ -76,6 +76,10 @@ app.get('/teleComm(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'teleComm.html'));
 });
 
+app.get('/PC(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'PC.html'));
+});
+
 app.get('../mintAsset(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'mintAsset.html'));
 });
