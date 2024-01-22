@@ -38,6 +38,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 // <----product listing router starts here---->
 
 app.use('/product-listing', require('./routes/autoProductListing'));
+app.use('/product-listing/PC', require('./routes/PcProductListing'));
 app.use('/product-listing/telComm', require('./routes/telCommProductListing'));
 app.use('/product-listing/realEstate', require('./routes/realEstateProductListing'));
 
@@ -97,7 +98,12 @@ app.get('/AboutUs(.html)?', (req, res) => {
 });
 
 // About US section (Home page) starts here.--->
+app.get('/AboutUs(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'AboutUs.html'));
+});
+// About US section (Home page) ends here.--->
 
+// About US section (Home page) starts here.--->
 app.get('/mintTransfer(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'mintTransfer.html'));
 });
