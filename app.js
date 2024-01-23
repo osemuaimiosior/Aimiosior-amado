@@ -1,4 +1,4 @@
-// const { RapidAPIKey, RapidAPIHost } = require('./config.json');
+const { RapidAPIKey, RapidAPIHost } = require('./config.json');
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3500;
 // app.use(logger);
 
 // Cross Origin Resource Sharing (cors)
-const whitelist = ['https://www.yoursite.com','http://127.0.0.1:5500','http://localhost:3500'];
+const whitelist = ['https://www.yoursite.com','http://127.0.0.1:5500','http://localhost:3500','http://172.31.30.206'];
 const corsOptions = {
     origin: (origin, callback) => {
         if(whitelist.indexOf(origin) !== -1 || !origin){
