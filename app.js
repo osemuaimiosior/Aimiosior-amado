@@ -9,7 +9,7 @@ const carApi = require('./public/js/carApi');
 const PORT = process.env.PORT || 3500;
 
 // custom midddleware logger
-app.use(logger);
+// app.use(logger);
 
 // Cross Origin Resource Sharing (cors)
 // const whitelist = ['https://www.yoursite.com','https://www.google.com','http://127.0.0.1:5500','http://localhost:3500','http://54.91.233.27:3500'];
@@ -38,6 +38,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 // <----product listing router starts here---->
 
+app.use('/', require('./routes/route'));
 app.use('/product-listing', require('./routes/autoProductListing'));
 app.use('/product-listing/PC', require('./routes/PcProductListing'));
 app.use('/product-listing/telComm', require('./routes/telCommProductListing'));
@@ -62,97 +63,12 @@ app.post('/data', (req, res) => {
 
 // <----General mallware starts here---->
 
-app.get('^/$|/index(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Maxim','index.html'));
-});
-
-app.get('^/inner-page(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Maxim','inner-page.html'));
-});
-
-app.get('^/aboutPage(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Maxim','aboutPage.html'));
-});
-
-app.get('^/teamPage(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Maxim','teamPage.html'));
-});
-
-app.get('^/faqPage(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Maxim','faqPage.html'));
-});
-
-app.get('^/contactPage(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Maxim','contactPage.html'));
-});
-
-app.get('/indexTrade(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
-
 app.get('/Dashboard/dashBoardIndex(.html)?', (req, res) => {
      res.sendFile(path.join(__dirname, 'Dashboard','dashBoardIndex.html'));
 });
 
-app.get('/teleComm(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'teleComm.html'));
-});
-
-app.get('/PC(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'PC.html'));
-});
-
 app.get('../mintAsset(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'mintAsset.html'));
-});
-
-app.get('/shop(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'shop.html'));
-});
-
-app.get('/realEstateHome(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'realEstateHome.html'));
-});
-
-app.get('/AboutUs(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'AboutUs.html'));
-});
-
-// About US section (Home page) starts here.--->
-app.get('/AboutUs(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'AboutUs.html'));
-});
-// About US section (Home page) ends here.--->
-
-// About US section (Home page) starts here.--->
-app.get('/mintTransfer(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Maxim','mintTransfer.html'));
-});
-
-app.get('/reportPage(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Maxim','reportPage.html'));
-});
-
-app.get('/trackVerify(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Maxim','trackVerify.html'));
-});
-
-app.get('/trade(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Maxim','trade.html'));
-});
-
-// About US section (Home page) ends here.--->
-
-app.get('/carEstimate(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'carEstimate.html'));
-});
-
-app.get('/login(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'login.html'));
-});
-
-app.get('/verificationResult(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'verificationResult.html'));
 });
 
 // <----home page routes ends here---->
