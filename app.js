@@ -66,6 +66,26 @@ app.get('^/$|/index(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'Maxim','index.html'));
 });
 
+app.get('^/inner-page(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Maxim','inner-page.html'));
+});
+
+app.get('^/aboutPage(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Maxim','aboutPage.html'));
+});
+
+app.get('^/teamPage(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Maxim','teamPage.html'));
+});
+
+app.get('^/faqPage(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Maxim','faqPage.html'));
+});
+
+app.get('^/contactPage(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Maxim','contactPage.html'));
+});
+
 app.get('/indexTrade(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
@@ -106,19 +126,19 @@ app.get('/AboutUs(.html)?', (req, res) => {
 
 // About US section (Home page) starts here.--->
 app.get('/mintTransfer(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'mintTransfer.html'));
+    res.sendFile(path.join(__dirname, 'Maxim','mintTransfer.html'));
 });
 
 app.get('/reportPage(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'reportPage.html'));
+    res.sendFile(path.join(__dirname, 'Maxim','reportPage.html'));
 });
 
 app.get('/trackVerify(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'trackVerify.html'));
+    res.sendFile(path.join(__dirname, 'Maxim','trackVerify.html'));
 });
 
 app.get('/trade(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'trade.html'));
+    res.sendFile(path.join(__dirname, 'Maxim','trade.html'));
 });
 
 // About US section (Home page) ends here.--->
