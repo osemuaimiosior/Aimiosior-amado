@@ -64,14 +64,13 @@
             </div>
             <!-- Logo -->
             <div class="logo">
-                <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+                <a href="autoMobile.html"><img src="img/core-img/logo.png" alt=""></a>
             </div>
             <!-- Amado Nav -->
             <nav class="amado-nav">
                 <ul>
-                    <li class="active" ><a href="indexTrade.html">Home</a></li>
-                    <li ><a href="shop.html">Explore</a></li>
-                    <li ><a href="/carEstimate.html">Car Estimate</a></li>
+                    <li class="active" ><a href="index.html">Main Site</a></li>
+                    <li ><a href="#">Explore</a></li>
                       
             </nav>
             <!-- Button Group -->
@@ -79,6 +78,7 @@
                 <!-- <button onclick="carEstimate()" class="btn amado-btn mb-15">Market Value</button> --> 
                 <!-- <button id="open-connect-modal" class="btn amado-btn mb-15">Profile</button> -->
                 <button id="open-connect-modal" class="btn amado-btn mb-15">Profile</button>
+                <button  class="btn amado-btn mb-15" onclick="carEstimate()" >Car Estimate</button>
                 <button type="submit" class="btn amado-btn mb-15" onclick="mintAsset()">Mint Asset</button>
                 <button type="submit" class="btn amado-btn mb-15" onclick="verify()">Verify Asset</button>
             </div>
@@ -334,11 +334,6 @@
     <script src="js/metaMask.js"></script>
     <script src="js/verify.js"></script>
     <script src="js/mintAsset.js"></script>
-    <script type="module">
-        import modal from "js/wallet.js"
-        const openConnectModalBtn = document.getElementById('open-connect-modal')
-        openConnectModalBtn.addEventListener('click', () => modal.open())
-    </script>
 
 </body>
 </html>

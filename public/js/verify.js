@@ -18,6 +18,22 @@ function verifyTelComm() {
     }
 }
 
+function nextInfo() {
+    let carMil;
+    carMil = prompt('Input Car Mileage');
+    if(carMil.length) {
+        window.open("/carEstimate.html", "", "width=500,height=550");
+    } else {
+        setTimeout(alert('Please input car mileage'))
+    }
+}
+
 function carEstimate(){
-    window.open("/carEstimate.html", "", "width=500,height=400");
+    let carVin;
+    carVin = prompt('Input Car Vehicle Identification Number');
+    if (carVin.length) {
+        nextInfo();
+    } else {
+        setTimeout(alert('Please input car VIN'))
+    }
 }
