@@ -79,9 +79,9 @@ router.get('/trade(.html)?', (req, res) => {
 
 // About US section (Home page) ends here.--->
 
-router.get('/carEstimate(.html)?', (req, res) => {
+/*router.get('/carEstimate(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','carEstimate.html'));
-});
+});*/
 
 router.get('/login(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','login.html'));

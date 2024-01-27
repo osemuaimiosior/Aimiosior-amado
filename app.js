@@ -67,6 +67,10 @@ app.get('/Dashboard/dashBoardIndex(.html)?', (req, res) => {
      res.sendFile(path.join(__dirname, 'Dashboard','dashBoardIndex.html'));
 });
 
+app.get('/carEstimate(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, 'carEstimate.html'));
+});
+
 app.get('../mintAsset(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'mintAsset.html'));
 });
