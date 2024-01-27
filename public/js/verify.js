@@ -6,15 +6,19 @@ function verificationResult(){
      
 function verify() {
     let pt = prompt('Input Asset Identification Number');
-    if(pt != null){
+    if(pt.length){
         verificationResult();
+    } else {
+        setTimeout(alert('Please input car VIN'))
     }
 }
 
 function verifyTelComm() {
-    let pt = prompt('Input Asset IMEI Number');
-    if(pt != null){
+    let pt = prompt('Input Phone IMEI Number');
+    if(pt.length){
         verificationResult();
+    } else {
+        setTimeout(alert('Please input Phone IMEI Number'))
     }
 }
 
