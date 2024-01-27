@@ -77,7 +77,8 @@
             <!-- Button Group -->
             <div class="amado-btn-group mt-30 mb-100">
                 <!-- <button onclick="carEstimate()" class="btn amado-btn mb-15">Market Value</button> --> 
-                <a href="login.html" class="btn amado-btn mb-15">Profile</a>
+                <!-- <button id="open-connect-modal" class="btn amado-btn mb-15">Profile</button> -->
+                <button id="open-connect-modal" class="btn amado-btn mb-15">Profile</button>
                 <button type="submit" class="btn amado-btn mb-15" onclick="mintAsset()">Mint Asset</button>
                 <button type="submit" class="btn amado-btn mb-15" onclick="verify()">Verify Asset</button>
             </div>
@@ -333,6 +334,11 @@
     <script src="js/metaMask.js"></script>
     <script src="js/verify.js"></script>
     <script src="js/mintAsset.js"></script>
+    <script type="module">
+        import modal from "js/wallet.js"
+        const openConnectModalBtn = document.getElementById('open-connect-modal')
+        openConnectModalBtn.addEventListener('click', () => modal.open())
+    </script>
 
 </body>
 </html>
