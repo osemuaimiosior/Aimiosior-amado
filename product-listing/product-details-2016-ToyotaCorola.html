@@ -50,7 +50,7 @@
         <div class="mobile-nav">
             <!-- Navbar Brand -->
             <div class="amado-navbar-brand">
-                <a href="../index.html"><img src="../img/core-img/logo.png" alt=""></a>
+                <a href="#"><img src="../img/core-img/logo.png" alt=""></a>
             </div>
             <!-- Navbar Toggler -->
             <div class="amado-navbar-toggler">
@@ -66,35 +66,31 @@
             </div>
             <!-- Logo -->
             <div class="logo">
-                <a href="../index.html"><img src="../img/core-img/logo.png" alt=""></a>
+                <a href="#"><img src="../img/core-img/logo.png" alt=""></a>
             </div>
             <!-- Amado Nav -->
             <nav class="amado-nav">
                 <ul>
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Car Shop</a></li>
-                    <li><a href="#">Car Parts</a></li>
-                    <li><a href="#">About Us</a></li>
-                </ul>
+                    <li class="active" ><a href="../autoMobile.html">Back</a></li>
+                    <li ><a href="#">Explore</a></li>
+                      
             </nav>
             <!-- Button Group -->
             <div class="amado-btn-group mt-30 mb-100">
-                <a href="checkout.html" class="btn amado-btn mb-15">Checkout</a>
-                <button type="submit" class="btn amado-btn mb-15" onclick="connect()">Login</button>
-                <button onclick="BookDemo()" class="btn amado-btn mb-15">Book Inspection</button>
+                <!-- <button onclick="carEstimate()" class="btn amado-btn mb-15">Market Value</button> --> 
+                <!-- <button id="open-connect-modal" class="btn amado-btn mb-15">Profile</button> -->
+                <button id="open-connect-modal" class="btn amado-btn mb-15">Profile</button>
+                <button  class="btn amado-btn mb-15" onclick="carEstimate()" >Car Estimate</button>
+                <button type="submit" class="btn amado-btn mb-15" onclick="mintAsset()">Mint Asset</button>
+                <button type="submit" class="btn amado-btn mb-15" onclick="verify()">Verify Asset</button>
             </div>
-            
-            <!-- Cart Menu -->
-            <div class="cart-fav-search mb-100">
-                <a href="../cart.html" class="cart-nav"><img src="../img/core-img/cart.png" alt=""> Cart <span id="cartNos"></span></a>
-                <a href="#" class="fav-nav"><img src="../img/core-img/favorites.png" alt=""> Favourite</a>
-                <a href="#" class="search-nav"><img src="../img/core-img/search.png" alt=""> Search</a>
-            </div>
+            </nav>
             <!-- Social Button -->
             <div class="social-info d-flex justify-content-between">
                 <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                 <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                 <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
             </div>
         </header>
         <!-- Header Area End -->
@@ -107,7 +103,7 @@
                     <div class="col-12">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mt-50">
-                                <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="../autoMobile.html">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">2016 Toyota Corola</li>
                             </ol>
                         </nav>
@@ -176,7 +172,7 @@
                                     </div>
                                 </div>
                                 <!-- Avaiable -->
-                                <p class="avaibility"><i class="fa fa-circle"></i> In Stock</p>
+                                <p class="avaibility"><i class="fa fa-circle"></i> Not for Sale</p>
                             </div>
 
                             <div class="short_overview my-5">
@@ -195,8 +191,8 @@
                             </div>
 
                            <!-- Add to Cart Form -->
-                           <form class="cart clearfix">
-                            <button type="submit" class="btn amado-btn" id="cart" >Verify Car</button>
+                           <form action="" class="cart clearfix" method="post">
+                            <button type="submit" class="btn amado-btn" name="ownershipHistory">Ownership History</button>
                         </form>
 
                     </div>
@@ -219,12 +215,10 @@
                     <div class="single_widget_area">
                         <!-- Logo -->
                         <div class="footer-logo mr-50">
-                            <a href="../index.html"><img src="../img/core-img/logo2.png" alt=""></a>
+                            <a href="#"><img src="../img/core-img/logo2.png" alt=""></a>
                         </div>
                         <!-- Copywrite Text -->
-                        <p class="copywrite"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Aimiosior-amado</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        <p class="copywrite"> Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | AMADO</a> </p>
                     </div>
                 </div>
                 <!-- Single Widget Area -->
