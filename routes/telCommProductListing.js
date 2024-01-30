@@ -14,6 +14,15 @@ router.get('/product-details-XiaomiRedmi(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','product-listing','telComm','product-details-XiaomiRedmi.html'));
 });
 
+router.get('/product-details-Iphone13(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','product-listing','telComm', 'product-details-Iphone13.html'));
+});
+
+router.get('/product-details-XiaomiRedmi(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','product-listing','telComm', 'product-details-XiaomiRedmi.html'));
+});
+
 module.exports = router;
+
 
 
