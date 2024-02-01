@@ -14,4 +14,8 @@ router.get('/product-details-AppleMacbookAir(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','product-listing','PC','product-details-AppleMacbookAir.html'));
 });
 
+router.get('/product-details-LenovoAMDRYZEN(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','product-listing','PC','product-details-LenovoAMDRYZEN.html'));
+});
+
 module.exports = router;

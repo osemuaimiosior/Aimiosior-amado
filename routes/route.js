@@ -6,23 +6,27 @@ router.get('^/$|/index(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','Maxim','index.html'));
 });
 
-router.get('^/inner-page(.html)?', (req, res) => {
+router.get('/profilePage(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','Maxim','profilePage.html'));
+});
+
+router.get('/inner-page(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','Maxim','inner-page.html'));
 });
 
-router.get('^/aboutPage(.html)?', (req, res) => {
+router.get('/aboutPage(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','Maxim','aboutPage.html'));
 });
 
-router.get('^/teamPage(.html)?', (req, res) => {
+router.get('/teamPage(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','Maxim','teamPage.html'));
 });
 
-router.get('^/faqPage(.html)?', (req, res) => {
+router.get('/faqPage(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','Maxim','faqPage.html'));
 });
 
-router.get('^/contactPage(.html)?', (req, res) => {
+router.get('/contactPage(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','Maxim','contactPage.html'));
 });
 
