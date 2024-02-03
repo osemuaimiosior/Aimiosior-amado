@@ -42,7 +42,16 @@ router.get('/product-details-DellVostro(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','product-listing','PC','product-details-DellVostro.html'));
 });
 
+router.get('/product-details-LenovoIdeapad15(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','product-listing','PC','product-details-LenovoIdeapad15.html'));
+});
+
+router.get('/product-details-HPChrome(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','product-listing','PC','product-details-HPChrome.html'));
+});
+
 module.exports = router;
+
 
 
 
