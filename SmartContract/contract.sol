@@ -43,9 +43,14 @@ contract assetContract {
         return Successful;
     }
 
+    function sendVerifyMsg(string memory _message, address _receiver) external returns (bool) {
+       (bool success,) =  _receiver.call(abi.encode(_message));
+        return success;
+    }
+
     function mintAsset( string memory assetName, 
                         string memory assetIDNumber,
-                        string memory assetDesc) public returns(string memory confirmed){
+                        string memory assetDesc) pure public returns(string memory confirmed){
         // Logic goes here
         return confirmed;
     }

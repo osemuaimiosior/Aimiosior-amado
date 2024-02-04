@@ -62,4 +62,8 @@ router.get('/product-details-2022-Lexus-LC500(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','product-listing','product-details-2022-Lexus-LC500.html'));
 });
 
+router.get('/product-details-2015-BenzVerify(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','product-listing','product-details-2015-BenzVerify.html'));
+});
+
 module.exports = router;

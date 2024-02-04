@@ -81,8 +81,7 @@
                 <!-- <button id="open-connect-modal" class="btn amado-btn mb-15">Profile</button> -->
                 <button id="open-connect-modal" class="btn amado-btn mb-15">Profile</button>
                 <button  class="btn amado-btn mb-15" onclick="carEstimate()" >Car Estimate</button>
-                <button type="submit" class="btn amado-btn mb-15" onclick="mintAsset()">Mint Asset</button>
-                <button type="submit" class="btn amado-btn mb-15" onclick="verify()">Verify Asset</button>
+                
             </div>
             
             <!-- Social Button -->
@@ -177,7 +176,7 @@
 
                             <div class="short_overview my-5">
                                 <p>The Mercedes-Benz CLS is a series of executive cars produced by Mercedes-Benz from 2004 to August 2023.</p> 
-                            <p>
+                            <p id="first">
                                 Body style: Sedan </p>
                             <p>
                                 Combined MPG: 24 </p>
@@ -191,9 +190,10 @@
                             </div>
 
                            <!-- Add to Cart Form -->
-                           <form class="cart clearfix">
-                            <button type="submit" class="btn amado-btn" onclick="verificationResult()" id="cart" >Ownership History</button>
-                        </form>
+                           <div class="amado-btn-group mt-30 mb-100">
+                            <!-- <button type="submit" onclick="verify()" class="btn amado-btn" id="cart" >Verify</button> -->
+                            <a href="product-details-2015-BenzVerify.html" class="btn amado-btn mb-15">Verify</a>
+                           </div>
 
                     </div>
                 </div>
