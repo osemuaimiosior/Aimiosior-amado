@@ -173,23 +173,24 @@
 
                             <div class="short_overview my-5">
                                 <p> The Rolls-Royce Ghost is a full-sized luxury car manufactured by Rolls-Royce Motor Cars. The "Ghost" nameplate, named in honour of the Silver Ghost, a car first produced in 1906, was announced in April 2009 at the Auto Shanghai show. The production model was officially unveiled at the 2009 Frankfurt Motor Show. </p> 
-                            <p>
+                            <p id="p1">
                                 Body style: Sedan </p>
-                            <p>
+                            <p id="p2">
                                 Combined MPG: 14 </p>
-                            <p> 
+                            <p id="p3"> 
                                 Seating capacity: 5 </p>
-                            <p>
+                            <p id="p4">
                                 Dimensions: 291.2” x 661” </p>
-                            <p>
+                            <p id="p5">
                                 Drivetrain: Rear-wheel drive </p>         
                                     
                             </div>
 
                             <!-- Add to Cart Form -->
-                            <form action="" class="cart clearfix" method="post">
-                                <button type="submit" name="ownershipHistory" class="btn amado-btn">Ownership History</button>
-                            </form>
+                            <div class="amado-btn-group mt-30 mb-100">
+                                <!-- <button type="submit" onclick="verify()" class="btn amado-btn" id="cart" >Verify</button> -->
+                                <button  id="verifyButton" class="btn amado-btn mb-15">Verify</button>
+                               </div>
 
                         </div>
                     </div>
@@ -269,6 +270,26 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
     <script src="../js/metaMask.js"></script>
     <script src="../js/BookDemo.js"></script>
+
+    <script>
+        document.getElementById('verifyButton').addEventListener('click', function (){
+        if (document.getElementById('verifyButton').innerText !== 'Back'){
+            document.getElementById('p1').innerText = '>> 1st Gen Owner USA 2015-01-10 00:45:27 - 0x2911C53aE2A78C0BDGDHS567SSYDTSSGSHH';
+            document.getElementById('p2').innerText = '>> Sold Ghana 2018-03-12 00:20:17 to - 0x2911C53aE2A78C039B35fCF82e90C8e6A9F2Eb84';
+            document.getElementById('p3').innerText = '>> Current Owner Nigeria 2022-05-04 09:40:57 to - 0x29334453aE3F5TC039BF4TF82e13C8e6A9F2Eb35';
+            document.getElementById('p4').innerText = '';
+            document.getElementById('p5').innerText = '';
+            document.getElementById('verifyButton').innerText = 'Back';
+        } else {
+            document.getElementById('p1').innerText = 'Body style: Sedan';
+            document.getElementById('p2').innerText = 'Combined MPG: 14';
+            document.getElementById('p3').innerText = 'Seating capacity: 5';
+            document.getElementById('p4').innerText = 'Dimensions: 291.2” x 661”';
+            document.getElementById('p5').innerText = 'Drivetrain: Rear-wheel drive';
+            document.getElementById('verifyButton').innerText = 'Verify';
+        }
+    });
+    </script>
 
 </body>
 

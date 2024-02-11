@@ -94,4 +94,9 @@ router.get('/login(.html)?', (req, res) => {
 router.get('/verificationResult(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','verificationResult.html'));
 });
+
+router.get('/portfolio-details(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','Maxim','portfolio-details.html'));
+});
+
 module.exports = router;
