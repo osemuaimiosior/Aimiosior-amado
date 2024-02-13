@@ -43,7 +43,7 @@ function carEstimate(){
 }
 
 function walletAmount() {
-    document.getElementById('walletAmount').innerText = 'Wallet amount: $' + 100;
+    document.getElementById('walletAmount').innerText = 'Wallet amount: $' + 50;
   }
 
 // Onwership Verification - verity section below
