@@ -34,6 +34,10 @@ router.get('/product-details-galaxyA14(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','product-listing','telComm', 'product-details-galaxyA14.html'));
 });
 
+router.get('/product-details-itel2163(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','product-listing','telComm', 'product-details-itel2163.html'));
+});
+
 
 
 module.exports = router;
