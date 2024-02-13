@@ -26,6 +26,15 @@ router.get('/product-details-galaxyS20(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','product-listing','telComm', 'product-details-galaxyS20.html'));
 });
 
+router.get('/product-details-infinixSmart7(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','product-listing','telComm', 'product-details-infinixSmart7.html'));
+});
+
+router.get('/product-details-galaxyA14(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','product-listing','telComm', 'product-details-galaxyA14.html'));
+});
+
+
 
 module.exports = router;
 
