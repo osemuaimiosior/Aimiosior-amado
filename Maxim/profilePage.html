@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Maxim Bootstrap Template - Index</title>
+  <title>NSENDU</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -43,14 +43,15 @@
     <div class="container d-flex justify-content-between">
 
       <div class="logo">
-        <h1><a href="/">Amando</a></h1>
+        <h1><a href="/">NSENDU</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img1/logo.png" alt="" class="img-fluid"></a> -->
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Connect Wallet</a></li>
+          <li><a class="nav-link scrollto" id="walletAmount"> </a></li>
+          <li><a class="nav-link scrollto" href="#">Connect Wallet</a></li>
           <!-- <li class="dropdown"><a href="#"><span>Resources</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
@@ -105,6 +106,11 @@
 
   <!-- Template Main JS File -->
   <script src="js1/main.js"></script>
+
+  <!-- JavaScript Files -->
+  <script src="js/verify.js"></script>
+
+  <script> window.onload = (event) =>{ walletAmount(); } </script>
 
 </body>
 

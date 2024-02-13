@@ -42,6 +42,10 @@ function carEstimate(){
     }
 }
 
+function walletAmount() {
+    document.getElementById('walletAmount').innerText = 'Wallet amount: $' + 100;
+  }
+
 // Onwership Verification - verity section below
 
 
