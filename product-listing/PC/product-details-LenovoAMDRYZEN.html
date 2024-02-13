@@ -147,24 +147,25 @@
                             </div>
 
                             <div class="short_overview my-5">
-                                <p> The Rolls-Royce Ghost is a full-sized luxury car manufactured by Rolls-Royce Motor Cars. The "Ghost" nameplate, named in honour of the Silver Ghost, a car first produced in 1906, was announced in April 2009 at the Auto Shanghai show. The production model was officially unveiled at the 2009 Frankfurt Motor Show. </p> 
-                            <p>
-                                Body style: Sedan </p>
-                            <p>
-                                Combined MPG: 14 </p>
-                            <p> 
-                                Seating capacity: 5 </p>
-                            <p>
-                                Dimensions: 291.2” x 661” </p>
-                            <p>
-                                Drivetrain: Rear-wheel drive </p>         
+                                <p> Ryzen is a brand of multi-core x86-64 microprocessors designed and marketed by AMD for desktop, mobile, server, and embedded platforms based on the Zen microarchitecture.</p> 
+                            <p id="p1">
+                                Series: Ideapad Amd </p>
+                            <p id="p2">
+                                RAM Size: 8 GB</p>
+                            <p id="p3"> 
+                                Hard Drive Size: 1TB </p>
+                            <p id="p4">
+                                Operating System: Windows 10 </p>
+                            <p id="p5">
+                                Number of Lithium Ion Cells: 2 </p>         
                                     
                             </div>
 
                             <!-- Add to Cart Form -->
-                            <form action="" class="cart clearfix" method="post">
-                                <button type="submit" name="ownershipHistory"  class="btn amado-btn">Verify</button>
-                            </form>
+                            <div class="amado-btn-group mt-30 mb-100">
+                                <!-- <button type="submit" onclick="verify()" class="btn amado-btn" id="cart" >Verify</button> -->
+                                <button  id="verifyButton" class="btn amado-btn mb-15">Verify</button>
+                               </div>
 
                         </div>
                     </div>
@@ -190,7 +191,7 @@
                         </div>
                         <!-- Copywrite Text -->
                         <p class="copywrite"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | AMANDO</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Nsendu</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                     </div>
                 </div>
@@ -245,6 +246,26 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="../js/metaMask.js"></script>
     <script src="../js/verify.js"></script>
     <script src="../js/mintAsset.js"></script>
+
+    <script>
+        document.getElementById('verifyButton').addEventListener('click', function (){
+        if (document.getElementById('verifyButton').innerText !== 'Back'){
+            document.getElementById('p1').innerText = '>> 1st Gen Owner United Kingdom 2023-06-01 15:45:27 - 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db';
+            document.getElementById('p2').innerText = '';
+            document.getElementById('p3').innerText = '';
+            document.getElementById('p4').innerText = '';
+            document.getElementById('p5').innerText = '';
+            document.getElementById('verifyButton').innerText = 'Back';
+        } else {
+            document.getElementById('p1').innerText = 'Series: Ideapad Amd';
+            document.getElementById('p2').innerText = 'RAM Size: 8 GB';
+            document.getElementById('p3').innerText = 'Hard Drive Size: 1TB';
+            document.getElementById('p4').innerText = 'Operating System: Windows 10';
+            document.getElementById('p5').innerText = 'Number of Lithium Ion Cells: 2';
+            document.getElementById('verifyButton').innerText = 'Verify';
+        }
+    });
+    </script>
 
 </body>
 

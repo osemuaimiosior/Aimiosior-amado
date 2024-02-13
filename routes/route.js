@@ -99,4 +99,9 @@ router.get('/portfolio-details(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','Maxim','portfolio-details.html'));
 });
 
+router.get('/mint(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','Maxim','mint.html'));
+});
+
+
 module.exports = router;
