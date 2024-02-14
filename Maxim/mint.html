@@ -151,7 +151,7 @@
     
             </div> -->
     
-            <div class="row mt-5 justify-content-center" data-aos="fade-up">
+            <div class="row mt-5 justify-content-center" data-aos="fade-up" enctype="multipart/form-data">
               <div class="col-lg-10">
                 <form action="#" method="post" role="form" class="php-email-form">
                   <div class="row">
@@ -172,6 +172,7 @@
                         <option value="PC">PC</option>
                         <!-- <option value="audi">Audi</option> -->
                       </select>
+               
                   <div class="form-group mt-3">
                     <textarea class="form-control" name="message" rows="5" placeholder="Input a Simple Description Of the Item" required></textarea>
                   </div>
@@ -180,6 +181,8 @@
                     <div class="error-message"></div>
                     <div class="sent-message">Done!</div>
                   </div>
+                  <label>Upload item picture:</label>
+                  <input type="file" id="file1" name="upload">
                   <div class="text-center"><button type="submit">Mint Now</button></div>
                 </form>
               </div>
