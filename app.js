@@ -1,10 +1,12 @@
-const { RapidAPIKey, RapidAPIHost } = require('./config.json');
+require('dotenv').config();
+//const { RapidAPIKey, RapidAPIHost } = require('./config.json');
 const express = require('express');
 const app = express();
 const cors = require('cors');
 const path = require('path');
 const { logger } = require('./middleware/logEvents');
 const carApi = require('./public/js/carApi');
+
 
 const PORT = process.env.PORT || 3500;
 
@@ -52,8 +54,8 @@ app.post('/data', (req, res) => {
         const url = `https://car-utils.p.rapidapi.com/marketvalue?vin=${vin}&mileage=${mileage}`;
         const options = {
             method: 'GET',
-            headers: {'X-RapidAPI-Key': RapidAPIKey,
-            'X-RapidAPI-Host': RapidAPIHost}
+            headers: {'X-RapidAPI-Key': process.env.RapidAPIKey,
+            'X-RapidAPI-Host': process.env.RapidAPIHost}
           };
           carApi(url, options);
           res.sendFile(path.join(__dirname, 'carEstimate.html'));

@@ -22,4 +22,4 @@ $RECYCLE.BIN/
 # Operating System Files
 # =========================
 node_modules
-# config.json
+.env
