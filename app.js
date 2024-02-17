@@ -1,14 +1,17 @@
 require('dotenv').config();
-//const { RapidAPIKey, RapidAPIHost } = require('./config.json');
+const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 const cors = require('cors');
 const path = require('path');
 const { logger } = require('./middleware/logEvents');
 const carApi = require('./public/js/carApi');
-
+const connectDB = require('./config/dbConn');
 
 const PORT = process.env.PORT || 3500;
+
+// Connect to MongoDB
+connectDB();
 
 // custom midddleware logger
 // app.use(logger);
@@ -69,7 +72,6 @@ app.get('/Dashboard/dashBoardIndex(.html)?', (req, res) => {
      res.sendFile(path.join(__dirname, 'Dashboard','dashBoardIndex.html'));
 });
 
-
 app.get('/carEstimate(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'carEstimate.html'));
 });
@@ -80,4 +82,7 @@ app.get('../mintAsset(.html)?', (req, res) => {
 
 // <----home page routes ends here---->
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+mongoose.connection.once('open', () => {
+    console.log('Connected to Mongoose');
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+})
