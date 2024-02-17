@@ -9,6 +9,28 @@ const accountTokenSchemna = new Schema({
     tokenBalance: {
         tpye: Number,
         required: true
+    },
+    transactionHistory: {
+        deposit: {
+            date:{
+                type: Date,
+                required: true
+            },
+            amount:{
+                type: Number,
+                required: true
+            }
+        },
+        withdrawal: {
+            date:{
+                type: Date,
+                required: true
+            },
+            amount:{
+                type: Number,
+                required: true
+            }
+        }
     }
 });
 
