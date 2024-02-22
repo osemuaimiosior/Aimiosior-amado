@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const accountTokenSchemna = new Schema({
-    address: {
+const accountTokenSchema = new Schema({
+    walletAddress: {
         type: String,
         required: true
     },
     tokenBalance: {
-        tpye: Number,
+        type: Number,
         required: true
     },
     transactionHistory: {
@@ -34,4 +34,4 @@ const accountTokenSchemna = new Schema({
     }
 });
 
-module.exports = mongoose.model('accountToken', accountTokenSchemna)
+module.exports = mongoose.model('accountToken', accountTokenSchema)
