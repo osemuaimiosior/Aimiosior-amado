@@ -4,26 +4,40 @@ pragma solidity >=0.8.2 <0.9.0;
 
 contract assetContract {
     
-    struct mintedItems {
-        string idNumber;
-        string itemName; 
-        string itemClass;
-        string itemDesc; 
+    mapping(string => address) ownershipLog;
+    mapping(string => bool) mintLogs;
+    mapping(string => address[]) transferLogs;
+    mapping(string => uint) ownershipHistoryCount;
+
+    function setItem (string memory ID) public returns (string memory done) {
+        require(ownershipLog[ID] != msg.sender, "This item has already been minted by you");
+        require(mintLogs[ID] != true, "The item already belongs to an entity");
+
+        ownershipLog[ID] = msg.sender;
+        mintLogs[ID] = true;
+        return done;
     }
 
-    mapping (address => mintedItems) mintLog;
-    mintedItems m;
-
-    function mintItem ( string memory _idNumber,
-                        string memory _itemName, 
-                        string memory _itemClass,
-                        string memory _itemDesc)  public returns(string memory confirmed){
-        m.idNumber = _idNumber;
-        m.itemName = _itemName;
-        m.itemClass = _itemClass;
-        m.itemDesc = _itemDesc;
-        mintLog[msg.sender] = m;
-        return confirmed;
+    function getItemOwner (string memory ID) view public returns (address) {
+        return ownershipLog[ID];
     }
- 
+
+    
+    function transferItem (string memory ID, address _to) public returns (string memory successfull) {
+        require(ownershipLog[ID] == msg.sender, "This item does not belong to you");
+
+        transferLogs[ID].push(_to);
+        ownershipHistoryCount[ID] += 1;
+        ownershipLog[ID] = _to;
+        return successfull;
+    }
+
+    function itemOwnershipHistoryCount (string memory ID) view public returns (uint) {
+        return ownershipHistoryCount[ID];
+    }
+
+    function itemHistoricOwnership (string memory ID) view public returns (address[] memory) {
+        return transferLogs[ID];
+    }
+
 }
