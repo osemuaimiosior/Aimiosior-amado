@@ -94,7 +94,7 @@
       <h2></h2>
       <a href="/mint.html" class="btn-get-started scrollto">Mint</a>
       <!--- <a href="/realEstateHome.html" class="btn-get-started scrollto">Real Estate</a> --->
-      <!-- <a href="#" onclick="verify()" class="btn-get-started scrollto">Verify</a> -->
+      <a href="#" onclick="verify()" class="btn-get-started scrollto">Verify</a>
       <a href="#" class="btn-get-started scrollto">Report - Coming soon</a>
       <a href="#" class="btn-get-started scrollto">My assets - Coming soon</a>
     </div>
@@ -116,7 +116,186 @@
   <!-- JavaScript Files -->
   <script src="js/verify.js"></script>
 
-  <script> window.onload = (event) =>{ walletAmount(); } </script>
+  <script> 
+  window.onload = (event) =>{ walletAmount(); } 
+  </script>
+
+  <script>
+    // SPDX-License-Identifier: GPL-3.0
+
+    pragma solidity >=0.8.2 <0.9.0;
+
+    contract assetContract {
+        
+        mapping(string => address) ownershipLog;
+        mapping(string => bool) mintLogs;
+        mapping(string => address[]) transferLogs;
+        mapping(string => uint) ownershipHistoryCount;
+
+        function setItem (string calldata ID) public returns (string memory done) {
+            require(ownershipLog[ID] != msg.sender, "This item has already been minted by you");
+            require(mintLogs[ID] != true, "The item already belongs to an entity");
+
+            ownershipLog[ID] = msg.sender;
+            mintLogs[ID] = true;
+            return done;
+        }
+
+        function getItemOwner (string calldata ID) view public returns (address) {
+            return ownershipLog[ID];
+        }
+
+        
+        function transferItem (string calldata ID, address _to) public returns (string memory successfull) {
+            require(ownershipLog[ID] == msg.sender, "This item does not belong to you");
+
+            transferLogs[ID].push(_to);
+            ownershipHistoryCount[ID] += 1;
+            ownershipLog[ID] = _to;
+            return successfull;
+        }
+
+        function itemOwnershipHistoryCount (string calldata ID) view public returns (uint) {
+            return ownershipHistoryCount[ID];
+        }
+
+        function itemHistoricOwnership (string calldata ID) view public returns (address[] memory) {
+            return transferLogs[ID];
+        }
+
+    }
+
+    var ContractAdd = "0x4815A8Ba613a3eB21A920739dE4cA7C439c7e1b1";
+    var ContractABI = [
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "ID",
+				"type": "string"
+			}
+		],
+		"name": "setItem",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "done",
+				"type": "string"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "ID",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			}
+		],
+		"name": "transferItem",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "successfull",
+				"type": "string"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "ID",
+				"type": "string"
+			}
+		],
+		"name": "getItemOwner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "ID",
+				"type": "string"
+			}
+		],
+		"name": "itemHistoricOwnership",
+		"outputs": [
+			{
+				"internalType": "address[]",
+				"name": "",
+				"type": "address[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "ID",
+				"type": "string"
+			}
+		],
+		"name": "itemOwnershipHistoryCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+
+  var Contract;
+  var signer;
+
+  var provider = new ethers.providers.Web3Provider(window.ethereum);
+  provider.listAccounts().then(function(accounts) {
+      signer = provider.getSigner(accounts[0]);
+      Contract = new ethers.Contract(ContractAdd, ContractABI, signer);
+    })
+
+// Calling smart contract(s)
+
+async function mintItem(){
+    let ID = document.getElementById("nameInput").value;
+
+   const accounts = await window.ethereum.request({method: "eth_accounts"})
+    if (accounts.length){
+        if (name.length != 0 && phoneNumber.length != 0 && companyEmail.length != 0 && website.length != 0 && industry.length != 0){
+        TradeFinanceContract.submitDetails(name,phoneNumber, companyEmail, website, industry);
+        setTimeout(function(){alert("Thank you")}, 500);
+    } else{
+        alert("Fill out the form correctly");
+    }
+    } else{
+        setTimeout(function(){alert ("Connect your wallet, click on 'Login'")}, 500);
+    }
+}
+  </script>
 
 </body>
 

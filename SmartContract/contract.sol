@@ -9,7 +9,7 @@ contract assetContract {
     mapping(string => address[]) transferLogs;
     mapping(string => uint) ownershipHistoryCount;
 
-    function setItem (string memory ID) public returns (string memory done) {
+    function setItem (string calldata ID) public returns (string memory done) {
         require(ownershipLog[ID] != msg.sender, "This item has already been minted by you");
         require(mintLogs[ID] != true, "The item already belongs to an entity");
 
@@ -18,12 +18,12 @@ contract assetContract {
         return done;
     }
 
-    function getItemOwner (string memory ID) view public returns (address) {
+    function getItemOwner (string calldata ID) view public returns (address) {
         return ownershipLog[ID];
     }
 
     
-    function transferItem (string memory ID, address _to) public returns (string memory successfull) {
+    function transferItem (string calldata ID, address _to) public returns (string memory successfull) {
         require(ownershipLog[ID] == msg.sender, "This item does not belong to you");
 
         transferLogs[ID].push(_to);
@@ -32,11 +32,11 @@ contract assetContract {
         return successfull;
     }
 
-    function itemOwnershipHistoryCount (string memory ID) view public returns (uint) {
+    function itemOwnershipHistoryCount (string calldata ID) view public returns (uint) {
         return ownershipHistoryCount[ID];
     }
 
-    function itemHistoricOwnership (string memory ID) view public returns (address[] memory) {
+    function itemHistoricOwnership (string calldata ID) view public returns (address[] memory) {
         return transferLogs[ID];
     }
 
