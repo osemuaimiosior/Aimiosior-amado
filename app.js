@@ -43,14 +43,16 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 // <----product listing router starts here---->
 
-app.use('/', require('./routes/route'));
 // You will most likely use an API than using a static routers like the once below - use routers for static pages 
+app.use('/', require('./routes/route'));
 app.use('/product-listing', require('./routes/autoProductListing'));
 app.use('/product-listing/PC', require('./routes/PcProductListing'));
 app.use('/product-listing/telComm', require('./routes/telCommProductListing'));
 app.use('/product-listing/realEstate', require('./routes/realEstateProductListing'));
+
 // Using an API - use this when you have to get data from an external source like a database (Mongodb, Postgres, MySQL etc.)
 app.use('/mintItem', require('./routes/api/mintItem'));
+app.use('/getAllItems', require('./routes/api/mintItem'));
 
 // <----Car estimate forms data processing starts here---->
 

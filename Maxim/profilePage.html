@@ -42,14 +42,14 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li class="dropdown"><a href="#"><span id="walletAmount"> </span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span id="walletAmount"> Acount Balance: 0.00</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Deposit</a></li>
               <li><a href="#">Withdraw</a></li>
               <li><a href="#">Transaction History</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#">Connect Wallet</a></li>
+          <li><a class="nav-link scrollto" href="#" onclick="connect()">Connect Wallet</a></li>
           <li><a class="nav-link scrollto" href="index.html">Go Back</a></li>
           <!-- <li class="dropdown"><a href="#"><span>Resources</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -85,7 +85,7 @@
       <h1>NSENDU...</h1>
       <h2></h2>
       <a href="/mint.html" class="btn-get-started scrollto">Mint</a>
-      <a href="#" onclick="verify()" class="btn-get-started scrollto">Verify</a>
+      <a href="#" onclick="getOwner()" class="btn-get-started scrollto">Verify</a>
       <a href="#" class="btn-get-started scrollto">Report - Coming soon</a>
       <a href="#" class="btn-get-started scrollto">My assets - Coming soon</a>
     </div>
@@ -102,193 +102,48 @@
   <script src="vendor1/php-email-form/validate.js"></script>
   <!-- JavaScript Files -->
   <script src="js1/main.js"></script>
-  <script src="js/verify.js"></script>
+  <!--<script src="js/verify.js"></script>-->
   <!-- Import ethersjs source -->
   <script charset="utf-8" src="https://cdn.ethers.io/scripts/ethers-v4.min.js" type="text/javascript"></script>
 
-  <script> 
-  window.onload = (event) =>{ walletAmount(); } 
+  <script>
+   // const ABI = ;
+   // const Address = ;
+  
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+  provider.listAccounts()
+        .then(function(accounts) {
+        const signer = provider.getSigner(accounts[0]);
+        const Contract = new ethers.Contract(Address, ABI, signer);
+      })
   </script>
 
   <script>
-    // SPDX-License-Identifier: GPL-3.0
-
-    pragma solidity >=0.8.2 <0.9.0;
-
-    contract assetContract {
-        
-        mapping(string => address) ownershipLog;
-        mapping(string => bool) mintLogs;
-        mapping(string => address[]) transferLogs;
-        mapping(string => uint) ownershipHistoryCount;
-
-        function setItem (string calldata ID) public returns (string memory done) {
-            require(ownershipLog[ID] != msg.sender, "This item has already been minted by you");
-            require(mintLogs[ID] != true, "The item already belongs to an entity");
-
-            ownershipLog[ID] = msg.sender;
-            mintLogs[ID] = true;
-            return done;
-        }
-
-        function getItemOwner (string calldata ID) view public returns (address) {
-            return ownershipLog[ID];
-        }
-
-        
-        function transferItem (string calldata ID, address _to) public returns (string memory successfull) {
-            require(ownershipLog[ID] == msg.sender, "This item does not belong to you");
-
-            transferLogs[ID].push(_to);
-            ownershipHistoryCount[ID] += 1;
-            ownershipLog[ID] = _to;
-            return successfull;
-        }
-
-        function itemOwnershipHistoryCount (string calldata ID) view public returns (uint) {
-            return ownershipHistoryCount[ID];
-        }
-
-        function itemHistoricOwnership (string calldata ID) view public returns (address[] memory) {
-            return transferLogs[ID];
-        }
-
+    const getOwner = async () => {
+      const account = await window.ethereum
+      .request({method: "eth_requestAccounts"})
+      if(account.length){
+        let ID = prompt("Input asset ID");
+        let contractResponse = await Contract.getItemOwner(ID);
+        prompt(contractResponse);
+      } else {
+        setTimeout(function(){alert ('Please connect you wallet')}, 500);
+      }
     }
-  
-    // Ensure Ethereum is enabled
-    window.ethereum.enable();
+  </script>
 
-    var ContractAdd = "0x4815A8Ba613a3eB21A920739dE4cA7C439c7e1b1";
-    var ContractABI = [
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "ID",
-				"type": "string"
-			}
-		],
-		"name": "setItem",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "done",
-				"type": "string"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "ID",
-				"type": "string"
-			},
-			{
-				"internalType": "address",
-				"name": "_to",
-				"type": "address"
-			}
-		],
-		"name": "transferItem",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "successfull",
-				"type": "string"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "ID",
-				"type": "string"
-			}
-		],
-		"name": "getItemOwner",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "ID",
-				"type": "string"
-			}
-		],
-		"name": "itemHistoricOwnership",
-		"outputs": [
-			{
-				"internalType": "address[]",
-				"name": "",
-				"type": "address[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "ID",
-				"type": "string"
-			}
-		],
-		"name": "itemOwnershipHistoryCount",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	}
-]
-
-  var assetContract;
-  var signer;
-
-  var provider = new ethers.providers.Web3Provider(window.ethereum);
-  provider.listAccounts().then(function(accounts) {
-      signer = provider.getSigner(accounts[0]);
-      assetContract = new ethers.Contract(ContractAdd, ContractABI, signer);
-    })
-
-// Calling smart contract(s)
-
-async function getItemOwner() {
-   const accounts = await window.ethereum.request({method: "eth_accounts"}); 
-    if (accounts.length){
-      let ID = prompt('Input Asset Identification Number');
-        if (ID.length){
-          getItemOwnerPromise = assetContract.getItemOwner(ID);
-          var itemOwner = await getItemOwnerPromise;
-          setTimeout(function(){alert(`This item belongs to ${itemOwner}`)}, 250);
-          //console.log(item);
-    } else{
-        alert("Please the input section can not be blank");
+  <script>
+    function connect() {
+      window.ethereum.request({ method: "eth_requestAccounts" })
+        .catch((err) => {
+            if (err.code === 4001) {
+                console.log("Please connect to MetaMask.");
+            } else {
+                console.error(err);
+            }
+        });
     }
-    } else{
-        setTimeout(function(){alert ("Please connect your wallet")}, 250);
-    }
-}
   </script>
 
 </body>

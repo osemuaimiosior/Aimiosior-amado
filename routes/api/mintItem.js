@@ -1,17 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const mintItemController = require('../../controllers/mintItemController');
 
 
-router.route('/')
-    .get()
-    .post((req, res) => {
-        req.body
-    })
-    .put((req, res) => {
-        req.body
-    })
-    .delete((req, res) => {
+router.route('/mintItem')
+    .get(mintItemController.mintNewItem);
 
-    });
-router.route('/')
+router.route('/getAllItems')
+    .post(mintItemController.getAllItemsByAddress);
+
 module.exports = router;
