@@ -1,8 +1,9 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 const express = require('express');
-const app = express();
 const cors = require('cors');
+const app = express();
+const corsOptions = require('./config/corsOptions');
 const path = require('path');
 const { logger } = require('./middleware/logEvents');
 const carApi = require('./public/js/carApi');
@@ -16,20 +17,7 @@ connectDB();
 // custom midddleware logger
 // app.use(logger);
 
-// Cross Origin Resource Sharing (cors)
-// const whitelist = ['https://www.yoursite.com','https://www.google.com','http://127.0.0.1:5500','http://localhost:3500','http://54.91.233.27:3500'];
-const corsOptions = {
-    origin: (origin, callback) => {
-        callback(null, true)
-        //if(whitelist.indexOf(origin) !== -1 || !origin){
-           // callback(null, true)
-       // } else {
-            //callback(new Error('Not allowed by cors'))
-       // }
-    }, 
-    optionsSuccessStatus: 200
-}
-
+// Cross origin Resource sharing
 app.use(cors(corsOptions));
 
 // To handle form data
@@ -52,7 +40,6 @@ app.use('/product-listing/realEstate', require('./routes/realEstateProductListin
 
 // Using an API - use this when you have to get data from an external source like a database (Mongodb, Postgres, MySQL etc.)
 app.use('/mintItem', require('./routes/api/mintItem'));
-app.use('/getAllItems', require('./routes/api/mintItem'));
 
 // <----Car estimate forms data processing starts here---->
 
