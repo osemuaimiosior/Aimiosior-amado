@@ -86,6 +86,7 @@
       <h2></h2>
       <a href="/mint.html" class="btn-get-started scrollto">Mint</a>
       <a href="#" onclick="verifyOwner()" class="btn-get-started scrollto">Verify</a>
+      <a href="#" onclick="transferOwner()" class="btn-get-started scrollto">Transfer</a>
       <a href="#" class="btn-get-started scrollto">Report - Coming soon</a>
       <a href="#" class="btn-get-started scrollto">My assets - Coming soon</a>
     </div>
@@ -212,19 +213,36 @@ const abi = [
 	}
 ];
 
-async function verifyOwner () {
+  async function verifyOwner () {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     await provider.send("eth_requestAccounts",[]);
-
     const signer = provider.getSigner();
-
     const assetContract = new ethers.Contract(address, abi, signer);
-
-    try {
+  try {
       let ID = prompt("Input asset ID");
       var result = await assetContract.getItemOwner(ID);
         // console.log(result);
         alert(result);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function transferOwner () {
+  provider = new ethers.providers.Web3Provider(window.ethereum);
+  await provider.send("eth_requestAccounts",[]);
+  const signer = provider.getSigner();
+  const assetContract = new ethers.Contract(address, abi, signer);
+
+  try {
+      let ID = document.getElementById("idNumber").value;
+      let newAddr = document.getElementById("newAddr").value;
+      if(!(ID && newAddr)) {
+        return;
+      } else {
+        var result = await assetContract.transferItem(ID, newAddr);
+        console.log(result);
+      } 
     } catch (error) {
         console.log(error);
     }

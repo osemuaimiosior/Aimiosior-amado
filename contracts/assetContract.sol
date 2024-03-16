@@ -21,10 +21,10 @@ contract assetContract {
     function getItemOwner (string calldata ID) view public returns (address) {
         return ownershipLog[ID];
     }
-
-    
+ 
     function transferItem (string calldata ID, address _to) public returns (string memory successfull) {
         require(ownershipLog[ID] == msg.sender, "This item does not belong to you");
+        require(mintLogs[ID] == true, "Please mint the item, it is not publicly known");
 
         transferLogs[ID].push(_to);
         ownershipHistoryCount[ID] += 1;

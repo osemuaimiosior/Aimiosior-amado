@@ -8,11 +8,15 @@ const path = require('path');
 const { logger } = require('./middleware/logEvents');
 const carApi = require('./public/js/carApi');
 const connectDB = require('./dbConfig/dbConn');
+// const walletConnect = require('./config/walletConnect');
 
 const PORT = process.env.PORT || 3500;
 
 // Connect to MongoDB
 connectDB();
+
+//Wallet configuration 
+// walletConnect();
 
 // custom midddleware logger
 // app.use(logger);
