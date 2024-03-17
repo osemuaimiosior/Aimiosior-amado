@@ -1,4 +1,5 @@
 const ethers = require('ethers');
+const path = require('path');
 require('dotenv').config();
 
 const address = '0x9E8813392BE59D5884C1bC03b352470839bB6Df8';
@@ -115,8 +116,8 @@ const abi = [
 		  let ID = '4JGBF25FX9A534793';
 		  var result = await assetContract.getItemOwner(ID);
 		  //console.log(result);
-		  res.send(result);
-		  // alert(result);
+		  //res.json(result);
+		  res.sendFile(path.join(__dirname, '..','Maxim','profilePageCopy.html'));
 	  } catch (error) {
 		  console.log(error);
 	  }
