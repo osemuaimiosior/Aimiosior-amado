@@ -22,7 +22,7 @@ $RECYCLE.BIN/
 # Operating System Files
 # =========================
 node_modules
-# .env
+.env
 
 # Hardhat files
 /cache
