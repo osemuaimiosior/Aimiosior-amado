@@ -2,7 +2,7 @@ const ethers = require('ethers');
 const path = require('path');
 require('dotenv').config();
 
-const address = '0x9E8813392BE59D5884C1bC03b352470839bB6Df8';
+const address = '0xb2Dbf235eDCBB3D5642fae00C27b53be75441249';
 const abi = [
 	{
 		"inputs": [
@@ -107,20 +107,69 @@ const abi = [
 ];
 	
 	const provider = new ethers.providers.JsonRpcProvider(process.env.TESTNET_URL)
-	const signer = new ethers.Wallet(process.env.KEY, provider)
+	const wallet = new ethers.Wallet(process.env.KEY, provider)
+	const signer = wallet.provider.getSigner(wallet.address);
 	const assetContract = new ethers.Contract(address, abi, signer);
   
-	const verifyItem = async (req, res) => {
+	const getItemOwner = async (req, res) => {
 	  try {
-		  //let ID = prompt("Input asset ID");
-		  let ID = '4JGBF25FX9A534793';
+		  const ID = req.params.id;
+		  //const ID = '4JGBF25FX9A534793';
 		  var result = await assetContract.getItemOwner(ID);
 		  //console.log(result);
-		  //res.json(result);
-		  res.sendFile(path.join(__dirname, '..','Maxim','profilePageCopy.html'));
+		  if(result == "0x0000000000000000000000000000000000000000"){
+			res.status(404).json({
+				status: "Fail",
+				message: "Unable to get data from the block"
+			  });
+		  } else {
+			res.json(result);
+		  };
 	  } catch (error) {
 		  console.log(error);
 	  }
   }
 
-  module.exports = {verifyItem}
+  const itemHistoricOwnership = async (req, res) => {
+	try {
+		const ID = req.params.id;
+		//const ID = '4JGBF25FX9A534793';
+		var result = await assetContract.itemHistoricOwnership(ID);
+		//console.log(result);
+		if(!result.length){
+		  res.status(404).json({
+			  status: "Fail",
+			  message: "Unable to get data from the block"
+			});
+		} else {
+		  res.json(result);
+		};
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+const itemOwnershipHistoryCount = async (req, res) => {
+	try {
+		const ID = req.params.id;
+		//const ID = '4JGBF25FX9A534793';
+		var result = await assetContract.itemOwnershipHistoryCount(ID);
+		//console.log(result);
+		if(!result.length){
+		  res.status(404).json({
+			  status: "Fail",
+			  message: "Unable to get data from the block"
+			});
+		} else {
+		  res.json(result);
+		};
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+  module.exports = {
+	getItemOwner,
+	itemHistoricOwnership,
+	itemOwnershipHistoryCount
+}

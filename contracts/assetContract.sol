@@ -5,6 +5,7 @@ pragma solidity >=0.8.2 <0.9.0;
 contract assetContract {
     
     mapping(string => address) ownershipLog;
+    mapping(address => uint) addressOwnershipLog;
     mapping(string => bool) mintLogs;
     mapping(string => address[]) transferLogs;
     mapping(string => uint) ownershipHistoryCount;
@@ -15,20 +16,23 @@ contract assetContract {
 
         ownershipLog[ID] = msg.sender;
         mintLogs[ID] = true;
+        ownershipHistoryCount[ID] += 1;
+        addressOwnershipLog[msg.sender] += 1;
         return done;
     }
 
     function getItemOwner (string calldata ID) view public returns (address) {
         return ownershipLog[ID];
     }
- 
+
+    
     function transferItem (string calldata ID, address _to) public returns (string memory successfull) {
         require(ownershipLog[ID] == msg.sender, "This item does not belong to you");
-        require(mintLogs[ID] == true, "Please mint the item, it is not publicly known");
 
         transferLogs[ID].push(_to);
         ownershipHistoryCount[ID] += 1;
         ownershipLog[ID] = _to;
+        addressOwnershipLog[_to] += 1;
         return successfull;
     }
 
@@ -40,4 +44,4 @@ contract assetContract {
         return transferLogs[ID];
     }
 
-}
+} 

@@ -44,7 +44,7 @@ app.use('/product-listing/telComm', require('./routes/telCommProductListing'));
 app.use('/product-listing/realEstate', require('./routes/realEstateProductListing'));
 
 // Using an API - use this when you have to get data from an external source like a database (Mongodb, Postgres, MySQL etc.)
-app.use('/mintItem', require('./routes/api/mintItem'));
+app.use('/readContract', require('./routes/api/readContract'));
 
 // <----Car estimate forms data processing starts here---->
 
