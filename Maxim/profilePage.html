@@ -85,8 +85,8 @@
       <h1>NSENDU...</h1>
       <h2 id="itemOwner"></h2>
       <a href="/mint.html" class="btn-get-started scrollto">Mint</a>
-      <a href="/mintItem/verifyItem" class="btn-get-started scrollto">Verify</a>
-      <a href="#" onclick="transferOwner()" class="btn-get-started scrollto">Transfer</a>
+      <a href="/readContract/getItemOwner" class="btn-get-started scrollto">Verify</a>
+      <a href="/mintTransfer.html" class="btn-get-started scrollto">Transfer</a>
       <a href="#" class="btn-get-started scrollto">Report - Coming soon</a>
       <a href="#" class="btn-get-started scrollto">My assets - Coming soon</a>
     </div>
@@ -103,162 +103,8 @@
   <script src="vendor1/php-email-form/validate.js"></script>
   <!-- JavaScript Files -->
   <script src="js1/main.js"></script>
-  <!--<script src="js/verify.js"></script>-->
-  <!-- Import ethersjs source -->
-  <script charset="utf-8" src="https://cdn.ethers.io/scripts/ethers-v4.min.js" type="text/javascript"></script>
-
-<script>
-
-const address = '0x9E8813392BE59D5884C1bC03b352470839bB6Df8';
-const abi = [
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "ID",
-				"type": "string"
-			}
-		],
-		"name": "setItem",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "done",
-				"type": "string"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "ID",
-				"type": "string"
-			},
-			{
-				"internalType": "address",
-				"name": "_to",
-				"type": "address"
-			}
-		],
-		"name": "transferItem",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "successfull",
-				"type": "string"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "ID",
-				"type": "string"
-			}
-		],
-		"name": "getItemOwner",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "ID",
-				"type": "string"
-			}
-		],
-		"name": "itemHistoricOwnership",
-		"outputs": [
-			{
-				"internalType": "address[]",
-				"name": "",
-				"type": "address[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "ID",
-				"type": "string"
-			}
-		],
-		"name": "itemOwnershipHistoryCount",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	}
-];
-
-  async function verifyOwner () {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    await provider.send("eth_requestAccounts",[]);
-    const signer = provider.getSigner();
-    const assetContract = new ethers.Contract(address, abi, signer);
-  try {
-      let ID = prompt("Input asset ID");
-      var result = await assetContract.getItemOwner(ID);
-        // console.log(result);
-        alert(result);
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-async function transferOwner () {
-  provider = new ethers.providers.Web3Provider(window.ethereum);
-  await provider.send("eth_requestAccounts",[]);
-  const signer = provider.getSigner();
-  const assetContract = new ethers.Contract(address, abi, signer);
-
-  try {
-      let ID = document.getElementById("idNumber").value;
-      let newAddr = document.getElementById("newAddr").value;
-      if(!(ID && newAddr)) {
-        return;
-      } else {
-        var result = await assetContract.transferItem(ID, newAddr);
-        console.log(result);
-      } 
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-    function connect() {
-      window.ethereum.request({ method: "eth_requestAccounts" })
-        .catch((err) => {
-            if (err.code === 4001) {
-                console.log("Please connect to MetaMask.");
-            } else {
-                console.error(err);
-            }
-        });
-    }
-  </script>
+  <script src="js/verify.js"></script>
+  
 
 </body>
 

@@ -2,7 +2,7 @@ const ethers = require('ethers');
 const path = require('path');
 require('dotenv').config();
 
-const address = '0xb2Dbf235eDCBB3D5642fae00C27b53be75441249';
+const address = '0x9E8813392BE59D5884C1bC03b352470839bB6Df8';
 const abi = [
 	{
 		"inputs": [
@@ -133,7 +133,6 @@ const abi = [
   const itemHistoricOwnership = async (req, res) => {
 	try {
 		const ID = req.params.id;
-		//const ID = '4JGBF25FX9A534793';
 		var result = await assetContract.itemHistoricOwnership(ID);
 		//console.log(result);
 		if(!result.length){
@@ -152,7 +151,6 @@ const abi = [
 const itemOwnershipHistoryCount = async (req, res) => {
 	try {
 		const ID = req.params.id;
-		//const ID = '4JGBF25FX9A534793';
 		var result = await assetContract.itemOwnershipHistoryCount(ID);
 		//console.log(result);
 		if(!result.length){

@@ -9,4 +9,7 @@ router.route('/getItemOwner/:id')
 router.route('/itemHistoricOwnership/:id')
     .get(readContractController.itemHistoricOwnership);
 
+router.route('/itemHistoricOwnershipCount/:id')
+    .get(readContractController.itemOwnershipHistoryCount);
+
 module.exports = router;
