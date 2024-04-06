@@ -3,7 +3,7 @@ const router = express.Router();
 const readContractController = require('../../controllers/readContractController');
 
 
-router.route('/getItemOwner/:id')
+router.route('/getItemOwner')
     .get(readContractController.getItemOwner);
 
 router.route('/itemHistoricOwnership/:id')

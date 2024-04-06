@@ -113,8 +113,9 @@ const abi = [
   
 	const getItemOwner = async (req, res) => {
 	  try {
-		  const ID = req.params.id;
-		  //const ID = '4JGBF25FX9A534793';
+		  //const ID = req.body.idNumber;
+		  //console.log(ID)
+		  const ID = '1234';
 		  var result = await assetContract.getItemOwner(ID);
 		  //console.log(result);
 		  if(result == "0x0000000000000000000000000000000000000000"){
@@ -124,6 +125,7 @@ const abi = [
 			  });
 		  } else {
 			res.json(result);
+			console.log(result);
 		  };
 	  } catch (error) {
 		  console.log(error);

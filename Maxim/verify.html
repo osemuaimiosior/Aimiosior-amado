@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Nsendu - Mint</title>
+  <title>Nsendu</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -72,7 +72,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>MINT YOUR ASSET</h2>
+          <h2>VERIFY OR TRANSFER AN ASSET </h2>
          <!-- <ol>
             <li><a href="profilePage.html">Back</a></li>
             <li>Mint</li>
@@ -94,48 +94,31 @@
           <div class="container">
             <div class="section-title" data-aos="fade-up">
               <h2></h2>
-              <p> Please provide Nsendu with the required details of the asset you want to mint. Protect what matters to you the most.</p>
+              <p> Please provide Nsendu with the required details.</p>
             </div>
 
             <div class="row mt-5 justify-content-center" data-aos="fade-up" enctype="multipart/form-data">
               <div class="col-lg-10">
-                <form action="#" method="post" role="form" class="php-email-form">
-                  <div class="row">
+                <form action="readContract/getItemOwner" method="get" role="form" class="php-email-form">
+                  <div class="row align-items-center">
+                    <div class="col-md-6 form-group">
+                      <select type="text" id="item" name="item" class="form-control"  required>
+                        <option value="">Select Item</option>
+                        <option value="automobile">Automobile</option>
+                        <option value="phone">Phone</option>
+                        <option value="pc">PC</option>
+                      </select>   
+                    </div>
                     <div class="col-md-6 form-group">
                       <input type="text" id="idNumber" name="idNumber" class="form-control rounded"  placeholder="ID Number" required>
                     </div>
-                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                      <input type="text" class="form-control rounded"  name="itemName"  placeholder="Name of item" required>
-                    </div>
                   </div>
-                  <!--<div>
-                    <input type="radio" id="automobile" name="assetClass" value="automobile">
-                    <label for="automobile">Automobile</label>
-                    <input type="radio" id="Telecom" name="assetClass" value="Telecom">
-                    <label for="Telecom">Telecom</label>
-                    <input type="radio" id="PC" name="assetClass" value="PC">
-                    <label for="PC">PC</label>
-                  </div>-->
-               
-                  <div class="form-group mt-3">
-                    <textarea class="form-control rounded" name="message" rows="5" placeholder="Input a Simple Description Of the Item" required></textarea>
-                  </div>
-                  <div class="col-md-6 form-group">
-                    <select type="text" id="item" name="item" class="form-control"  required>
-                      <option value="">Select Item</option>
-                      <option value="automobile">Automobile</option>
-                      <option value="phone">Phone</option>
-                      <option value="pc">PC</option>
-                    </select>   
-                  </div>
-                  <label>Upload a picture of your item:</label>
-                  <input type="file" id="image" name="imageUpload">
                   <div class="my-3">
                     <div class="loading">Loading</div>
                     <div class="error-message"></div>
                     <div class="sent-message">Done!</div>
                   </div>
-                  <div class="text-center"><button type="submit" id="mintNow">Mint Now</button></div>
+                  <div class="text-center"><button type="submit" id="verifyNow">Send</button></div>
                 </form>
               </div>
             </div>
@@ -231,9 +214,9 @@
 
 <script>
 
-document.getElementById("mintNow").addEventListener("click", function(){ 
-      setItem(); 
-    });
+//document.getElementById("verifyNow").addEventListener("click", function(){ 
+     // ItemOwner(); 
+    //});
 
 const address = '0x9E8813392BE59D5884C1bC03b352470839bB6Df8';
 const abi = [
@@ -339,7 +322,7 @@ const abi = [
 	}
 ];
 
-async function setItem() {
+async function ItemOwner() {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     await provider.send("eth_requestAccounts",[]);
 
@@ -352,9 +335,9 @@ async function setItem() {
       if(!ID) {
         alert('Please input an item ID');
       } else {
-        var result = await assetContract.setItem(ID);
-        console.log(result);
-        alert(result.hash);
+        var result = await assetContract.getItemOwner(ID);
+        //console.log(result.message);
+        alert(result.message);
       } 
     } catch (error) {
         console.log(error);

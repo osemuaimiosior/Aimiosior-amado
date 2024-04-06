@@ -103,5 +103,9 @@ router.get('/mint(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..','Maxim','mint.html'));
 });
 
+router.get('/verify(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '..','Maxim','verify.html'));
+});
+
 
 module.exports = router;
