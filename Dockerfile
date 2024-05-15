@@ -4,7 +4,7 @@ FROM node:18-alpine
 WORKDIR /app
 
 #Install app dependencies
-COPY package*.json ./
+COPY package.json ./
 
 #Run nmp install
 RUN npm install
